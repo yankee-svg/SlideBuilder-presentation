@@ -16,4 +16,11 @@ git clone https://github.com/yankee-svg/SlideBuilder-presentation.git
 npm i
 # Step 3: Start the development server which will provide the link to the local website
 npm run dev
+# step 4 :after running this there will be a local host local web
+````
+Note that: this project wont run after this bcz the file with the api key called .env file is not on this repository as those keys are private
+you 'll need to create your own file 
+```sh
+step 5 :create .env file and use your google gemni api key "https://ai.google.dev/gemini-api/docs/api-key"
+inside the .env file add VITE_GEMINI_API_KEY="your api key"
 
