@@ -7,11 +7,10 @@ it is build using typescript and js
 **URL**: 
 The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-Follow these steps:
+to run this locally Follow these steps:
 
 ```sh
-# Step 1: Clone this repo using the project's Git URL.
-git clone https://github.com/yankee-svg/SlideBuilder-presentation.git
+# Step 1: download this repo as a Zip file using the project's Git URL.https://github.com/yankee-svg/SlideBuilder-presentation.gi
 # Step 2: run this using npm command which install required packages to run this project which are in package.json file
 npm i
 # Step 3: Start the development server which will provide the link to the local website
