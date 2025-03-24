@@ -23,3 +23,6 @@ you 'll need to create your own file
 step 5 :create .env file and use your google gemni api key "https://ai.google.dev/gemini-api/docs/api-key"
 inside the .env file add VITE_GEMINI_API_KEY="your api key"
 
+```
+here is a youtube demo on how to run it locally web server and load balancer arent implemeted I'll update it 
+(https://youtu.be/yOoycU1HREY)
