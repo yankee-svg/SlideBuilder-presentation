@@ -1,10 +1,11 @@
 
 import React from 'react';
+// explains the props for the Loader component.
 
 interface LoaderProps {
   text?: string;
 }
-
+//function def
 const Loader: React.FC<LoaderProps> = ({ text = 'Generating your presentation...' }) => {
   return (
     <div className="w-full flex flex-col items-center justify-center py-12 animate-fade-in">
