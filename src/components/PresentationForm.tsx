@@ -1,4 +1,4 @@
-
+//calling out react 
 import React, { useState } from 'react';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
@@ -16,14 +16,14 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form';
+} from '@/components/ui/form';// import diff forms
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select';
+} from '@/components/ui/select';// selection option
 
 const formSchema = z.object({
   topic: z.string().min(3, { message: 'Topic must be at least 3 characters' }),
@@ -51,7 +51,7 @@ const PresentationForm: React.FC<PresentationFormProps> = ({ onSubmit, isLoading
       additionalInfo: '',
     },
   });
-
+// slides number handling
   const handleSlideCountChange = (value: number[]) => {
     setSlideCount(value[0]);
     form.setValue('slides', value[0]);
