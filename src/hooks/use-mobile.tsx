@@ -1,7 +1,8 @@
 import * as React from "react"
-
+//define mobile breakpoint
 const MOBILE_BREAKPOINT = 768
 
+//detct if device is mobile basd on width
 export function useIsMobile() {
   const [isMobile, setIsMobile] = React.useState<boolean | undefined>(undefined)
 
