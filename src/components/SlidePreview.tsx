@@ -11,16 +11,16 @@ interface SlidePreviewProps {
   presentation: Presentation;
   onDownload: () => void;
 }
-
+//preview 
 const SlidePreview: React.FC<SlidePreviewProps> = ({ presentation, onDownload }) => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const currentSlide = presentation.slides[currentSlideIndex];
-  
+  //prevous option
   const goToPreviousSlide = () => {
     setCurrentSlideIndex((prev) => (prev > 0 ? prev - 1 : prev));
   };
-  
-  const goToNextSlide = () => {
+  //next option
+  const goToNextSlide = () => { 
     setCurrentSlideIndex((prev) => (prev < presentation.slides.length - 1 ? prev + 1 : prev));
   };
 
