@@ -26,3 +26,5 @@ inside the .env file add VITE_GEMINI_API_KEY="your api key"
 ```
 here is a youtube demo on how to run it locally web server and load balancer arent implemeted I'll update it 
 (https://youtu.be/yOoycU1HREY)
+
+Note that the api keys used are not mine they 're google Gemni flash free keys 
