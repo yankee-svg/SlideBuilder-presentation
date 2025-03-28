@@ -2,7 +2,7 @@
 # SlideBuilder - AI Presentation Generator
 
 SlideBuilder is a web-based tool that uses Google's Gemini flash to generate slides contents based on the topic you enterd the slides doesn'tcontain images only 
-words 
+words
 
 ## how to deploy locally
 
