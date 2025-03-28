@@ -52,7 +52,7 @@ const Index = () => {
           <div className="max-w-2xl mx-auto mt-8">
             <h1 className="text-4xl font-bold mb-4 text-center">Create Your Presentation</h1>
             <p className="text-lg text-center text-muted-foreground mb-12">
-              Fill in the details below and let AI generate your presentation.
+              Choose a different topic and make adjustments based on audience 
             </p>
             <PresentationForm onSubmit={handleFormSubmit} isLoading={isLoading} />
           </div>
