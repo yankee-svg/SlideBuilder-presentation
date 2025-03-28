@@ -1,3 +1,4 @@
+//templates exportation
 
 export interface Slide {
   id: string;
