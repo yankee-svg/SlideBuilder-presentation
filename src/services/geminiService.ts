@@ -1,5 +1,5 @@
 import { Presentation, Slide, PresentationFormData, GeminiResponse } from '@/types';
-
+// gemni model calling
 const GEMINI_MODEL = 'gemini-2.0-flash';
 const GEMINI_BASE_URL = 'https://generativelanguage.googleapis.com/v1beta/models';
 const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY || '';
