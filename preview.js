@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const totalSlidesElement = document.getElementById('total-slides');
   const prevSlideBtn = document.getElementById('prev-slide');
   const nextSlideBtn = document.getElementById('next-slide');
-  const downloadPptxBtn = document.getElementById('download-pptx');
   const editPresentationBtn = document.getElementById('edit-presentation');
   const presentationContainer = document.getElementById('presentation-container');
   const noPresentationElement = document.getElementById('no-presentation');
@@ -116,56 +115,6 @@ document.addEventListener('DOMContentLoaded', () => {
   nextSlideBtn.addEventListener('click', () => {
     if (currentPresentation && currentSlideIndex < currentPresentation.slides.length - 1) {
       renderSlide(currentSlideIndex + 1);
-    }
-  });
-  
-  // Download presentation as PPTX
-  downloadPptxBtn.addEventListener('click', () => {
-    if (!currentPresentation) {
-      showToast('No presentation to download', 'error');
-      return;
-    }
-    
-    try {
-      // Create a new PptxGenJS instance
-      const pptx = new PptxGenJS();
-      
-      // Set presentation properties
-      pptx.author = 'SlideBuilder';
-      pptx.title = currentPresentation.title;
-      
-      // Add slides
-      currentPresentation.slides.forEach(slide => {
-        const pptxSlide = pptx.addSlide();
-        
-        // Add slide title
-        pptxSlide.addText(slide.title, { 
-          x: 0.5, 
-          y: 0.5, 
-          w: '90%', 
-          fontSize: 24, 
-          bold: true,
-          color: '6B46C1'
-        });
-        
-        // Add bullet points
-        slide.points.forEach((point, idx) => {
-          pptxSlide.addText(point, { 
-            x: 0.5, 
-            y: 1.5 + (idx * 0.6), 
-            w: '90%', 
-            fontSize: 18,
-            bullet: { type: 'bullet' }
-          });
-        });
-      });
-      
-      // Save presentation
-      pptx.writeFile({ fileName: `${currentPresentation.title.replace(/\s+/g, '_')}.pptx` });
-      showToast('Presentation downloaded successfully!', 'success');
-    } catch (error) {
-      console.error('Error downloading PPTX:', error);
-      showToast('Error downloading presentation', 'error');
     }
   });
   

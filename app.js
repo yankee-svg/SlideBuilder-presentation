@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', () => {
   // Elements
   const presentationForm = document.getElementById('presentation-form');
@@ -78,11 +77,17 @@ document.addEventListener('DOMContentLoaded', () => {
   // Generate presentation with Google Gemini API
   async function generatePresentation(formData) {
     try {
-      // Get API key from .env only
-      const apiKey = window.env?.GEMINI_API_KEY;
+      // Fetch API key from config.json
+      const response = await fetch('config.json');
+      if (!response.ok) {
+        throw new Error('Failed to load configuration file.');
+      }
+      
+      const config = await response.json();
+      const apiKey = config.GEMINI_API_KEY;
       
       if (!apiKey || apiKey === 'your_api_key_here') {
-        throw new Error('API key is not set. Please add your Gemini API key to the .env file.');
+        throw new Error('API key is not set. Please add your Gemini API key to the config.json file.');
       }
       
       // Create prompt for Gemini
@@ -108,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
       showToast('Generating your presentation...', 'success');
       
       // Call Gemini API
-      const response = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=' + apiKey, {
+      const apiResponse = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=' + apiKey, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -122,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
       });
       
-      const data = await response.json();
+      const data = await apiResponse.json();
       
       if (data.error) {
         throw new Error(`API Error: ${data.error.message}`);

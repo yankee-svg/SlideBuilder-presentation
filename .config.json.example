@@ -3,4 +3,4 @@
 # Get your API key from https://makersuite.google.com/app/apikey
 # Create a copy of this file named .env and replace with your actual API key
 # The app will only work with a valid API key in the .env file
-GEMINI_API_KEY=your_api_key_here
+GEMINI_API_KEY=your_api_key_here'"
