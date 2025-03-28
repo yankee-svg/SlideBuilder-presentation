@@ -1,55 +1,29 @@
 
 # SlideBuilder - AI Presentation Generator
 
-SlideBuilder is a web-based tool that uses Google's Gemini API to generate professional presentations in seconds. Simply input your topic, audience, and preferences, and SlideBuilder will create a complete presentation ready for download.
+SlideBuilder is a web-based tool that uses Google's Gemini flash to generate slides contents based on the topic you enterd the slides doesn'tcontain images only 
+words 
 
-## Features
-
-- Generate complete presentations with AI
-- Customize slides based on your topic, audience, and style preferences
-- Preview generated slides in an interactive viewer
-- Download presentations in PPTX format
-- Simple and intuitive user interface
-
-## Getting Started
+## how to deploy locally
 
 1. Clone this repository
-2. Add your Google Gemini API key to the `.env` file
+2. create a config.json file and add the following commands the app need this file to run
+3. inside config.json add this command
+   {
+    "GEMINI_API_KEY" : "`your_api_key_here`"
+}
    - You can get an API key from [Google AI Studio](https://makersuite.google.com/app/apikey)
-   - Replace `your_api_key_here` with your actual API key
-3. Open `index.html` in your browser
+     
+5. then run npx server
 
-## How It Works
+## demo video
 
-1. Fill out the form with your presentation details
-2. The application sends your request to Google's Gemini AI
-3. Gemini generates structured content for your presentation
-4. The content is displayed in the preview page
-5. Download your presentation in PPTX format
 
-## Technologies Used
+## load balanced and deployment on web01 and web02
 
-- HTML5
-- CSS3
-- JavaScript
-- Google Gemini API
-- PptxGenJS for PowerPoint generation
 
-## Project Structure
-
-- `index.html` - The main page with the presentation form
-- `preview.html` - The presentation preview page
-- `styles.css` - Stylesheet for the application
-- `app.js` - JavaScript for the main page
-- `preview.js` - JavaScript for the preview page
-- `.env` - Environment variables (API key)
 
 ## Notes
-
-- The PDF export feature is currently under development
-- This application requires an internet connection to generate presentations
-- Your Gemini API key is stored locally and is never sent to our servers
-
 ## License
 
 This project is licensed under the MIT License
