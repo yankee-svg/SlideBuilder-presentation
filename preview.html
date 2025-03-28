@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Presentation Preview - SlideBuilder</title>
+    <meta name="description" content="Preview your AI-generated presentation" />
+    
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/pptxgenjs@3.12.0/dist/pptxgen.min.js"></script>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <!-- Load environment variables manually -->
+    <script>
+      // Function to load environment variables from .env file
+      async function loadEnvVariables() {
+        try {
+          const response = await fetch('.env');
+          if (response.ok) {
+            const text = await response.text();
+            const envVars = {};
+            
+            text.split('\n').forEach(line => {
+              // Skip comments and empty lines
+              if (line.trim() && !line.startsWith('#')) {
+                const [key, value] = line.split('=');
+                if (key && value) {
+                  envVars[key.trim()] = value.trim();
+                }
+              }
+            });
+            
+            // Add environment variables to window object
+            window.env = envVars;
+          } else {
+            console.warn('Could not load .env file');
+            window.env = {};
+          }
+        } catch (error) {
+          console.warn('Error loading .env file:', error);
+          window.env = {};
+        }
+      }
+      
+      // Load environment variables before the app starts
+      loadEnvVariables();
+    </script>
+  </head>
+
+  <body>
+    <div class="app-container">
+      <header class="header">
+        <div class="header-logo">
+          <i class="fas fa-presentation icon-primary"></i>
+          <h1 class="logo-text">Slide<span class="text-primary">Builder</span></h1>
+        </div>
+      </header>
+      
+      <div class="main-layout">
+        <nav class="sidebar-nav">
+          <a href="index.html" class="nav-link">
+            <i class="fas fa-home"></i> Home
+          </a>
+          <a href="preview.html" class="nav-link active">
+            <i class="fas fa-eye"></i> Preview
+          </a>
+          <a href="#" class="nav-link">
+            <i class="fas fa-palette"></i> Templates
+          </a>
+          <a href="#" class="nav-link">
+            <i class="fas fa-graduation-cap"></i> Learn
+          </a>
+        </nav>
+        
+        <main class="main-content">
+          <div class="preview-header">
+            <h1 id="presentation-title" class="preview-title">Your Presentation</h1>
+            <div class="preview-actions">
+              <button id="download-pptx" class="btn btn-outline">
+                <i class="fas fa-file-powerpoint"></i> Download PPTX
+              </button>
+              <button id="edit-presentation" class="btn btn-primary">
+                <i class="fas fa-edit"></i> Edit
+              </button>
+            </div>
+          </div>
+          
+          <div id="presentation-container" class="presentation-container">
+            <div class="slide-container">
+              <div id="slide-navigation" class="slide-navigation">
+                <button id="prev-slide" class="nav-btn" disabled>
+                  <i class="fas fa-chevron-left"></i>
+                </button>
+                <div id="slide-indicator">Slide <span id="current-slide">1</span> of <span id="total-slides">10</span></div>
+                <button id="next-slide" class="nav-btn">
+                  <i class="fas fa-chevron-right"></i>
+                </button>
+              </div>
+              
+              <div id="slide-content" class="slide-content">
+                <h2 id="slide-title" class="slide-title">Welcome to Your Presentation</h2>
+                <div id="slide-body" class="slide-body">
+                  <ul id="slide-points" class="slide-points">
+                    <li>This is where your presentation content will appear</li>
+                    <li>Fill out the form on the home page to generate a presentation</li>
+                    <li>Navigate through slides using the buttons above</li>
+                    <li>Download your presentation in various formats</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div id="no-presentation" class="no-presentation hidden">
+            <div class="empty-state">
+              <i class="fas fa-file-powerpoint empty-icon"></i>
+              <h2>No Presentation Generated Yet</h2>
+              <p>Go to the home page to create your first presentation.</p>
+              <a href="index.html" class="btn btn-primary">Create Presentation</a>
+            </div>
+          </div>
+        </main>
+      </div>
+      
+      <footer class="footer">
+        <div class="container">
+          <div class="footer-content">
+            <div class="footer-logo">
+              <i class="fas fa-presentation icon-primary"></i>
+              <h2 class="logo-text">Slide<span class="text-primary">Builder</span></h2>
+            </div>
+            <p class="footer-text">© 2025 SlideBuilder. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+      
+      <!-- Toast Container -->
+      <div id="toast-container" class="toast-container"></div>
+    </div>
+
+    <script src="preview.js"></script>
+  </body>
+</html>

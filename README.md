@@ -1,30 +1,55 @@
-# Welcome to your SliderBuilder project
 
-## Project info
-this is a powerpoint presentation builder using google Gemni api key to create diffrent slides based on the user input,
-it is build using typescript and js
+# SlideBuilder - AI Presentation Generator
 
-**URL**: 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+SlideBuilder is a web-based tool that uses Google's Gemini API to generate professional presentations in seconds. Simply input your topic, audience, and preferences, and SlideBuilder will create a complete presentation ready for download.
 
-to run this locally Follow these steps:
+## Features
 
-```sh
-# Step 1: download this repo as a Zip file using the project's Git URL.https://github.com/yankee-svg/SlideBuilder-presentation.gi
-# Step 2: run this using npm command which install required packages to run this project which are in package.json file
-npm i
-# Step 3: Start the development server which will provide the link to the local website
-npm run dev
-# step 4 :after running this there will be a local host local web
-````
-Note that: this project wont run after this bcz the file with the api key called .env file is not on this repository as those keys are private
-you 'll need to create your own file 
-```sh
-step 5 :create .env file and use your google gemni api key "https://ai.google.dev/gemini-api/docs/api-key"
-inside the .env file add VITE_GEMINI_API_KEY="your api key"
+- Generate complete presentations with AI
+- Customize slides based on your topic, audience, and style preferences
+- Preview generated slides in an interactive viewer
+- Download presentations in PPTX format
+- Simple and intuitive user interface
 
-```
-here is a youtube demo on how to run it locally web server and load balancer arent implemeted I'll update it 
-(https://youtu.be/yOoycU1HREY)
+## Getting Started
 
-Note that the api keys used are not mine they 're google Gemni flash free keys 
+1. Clone this repository
+2. Add your Google Gemini API key to the `.env` file
+   - You can get an API key from [Google AI Studio](https://makersuite.google.com/app/apikey)
+   - Replace `your_api_key_here` with your actual API key
+3. Open `index.html` in your browser
+
+## How It Works
+
+1. Fill out the form with your presentation details
+2. The application sends your request to Google's Gemini AI
+3. Gemini generates structured content for your presentation
+4. The content is displayed in the preview page
+5. Download your presentation in PPTX format
+
+## Technologies Used
+
+- HTML5
+- CSS3
+- JavaScript
+- Google Gemini API
+- PptxGenJS for PowerPoint generation
+
+## Project Structure
+
+- `index.html` - The main page with the presentation form
+- `preview.html` - The presentation preview page
+- `styles.css` - Stylesheet for the application
+- `app.js` - JavaScript for the main page
+- `preview.js` - JavaScript for the preview page
+- `.env` - Environment variables (API key)
+
+## Notes
+
+- The PDF export feature is currently under development
+- This application requires an internet connection to generate presentations
+- Your Gemini API key is stored locally and is never sent to our servers
+
+## License
+
+This project is licensed under the MIT License

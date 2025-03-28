@@ -1,27 +1,165 @@
-<!--small html used-->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>imagina-presentation</title>
-    <meta name="description" content="slidebuilder Generated Project" />
-    <meta name="author" content="slidebuilder" />
-
-    <meta property="og:title" content="slidebuilder Generated Project" />
-    <meta property="og:description" content="slidebuilder Generated Project" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://slidebuilder.dev/opengraph-image-p98pqg.png" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@slidebuilder_dev" />
-    <meta name="twitter:image" content="https://slidebuilder.dev/opengraph-image-p98pqg.png" />
+    <title>SlideBuilder - AI Presentation Generator</title>
+    <meta name="description" content="Create professional presentations in minutes with AI" />
+    
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/pptxgenjs@3.12.0/dist/pptxgen.min.js"></script>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <!-- Load environment variables manually -->
+    <script>
+      // Function to load environment variables from .env file
+      async function loadEnvVariables() {
+        try {
+          const response = await fetch('.env');
+          if (response.ok) {
+            const text = await response.text();
+            const envVars = {};
+            
+            text.split('\n').forEach(line => {
+              // Skip comments and empty lines
+              if (line.trim() && !line.startsWith('#')) {
+                const [key, value] = line.split('=');
+                if (key && value) {
+                  envVars[key.trim()] = value.trim();
+                }
+              }
+            });
+            
+            // Add environment variables to window object
+            window.env = envVars;
+            console.log("Environment variables loaded:", window.env);
+          } else {
+            console.warn('Could not load .env file');
+            window.env = {};
+          }
+        } catch (error) {
+          console.warn('Error loading .env file:', error);
+          window.env = {};
+        }
+      }
+      
+      // Load environment variables before the app starts
+      loadEnvVariables();
+    </script>
   </head>
 
   <body>
-    <div id="root"></div>
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT -->
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-    <script type="module" src="/src/main.tsx"></script>
+    <div class="app-container">
+      <header class="header">
+        <div class="header-logo">
+          <i class="fas fa-presentation icon-primary"></i>
+          <h1 class="logo-text">Slide<span class="text-primary">Builder</span></h1>
+        </div>
+      </header>
+      
+      <div class="main-layout">
+        <nav class="sidebar-nav">
+          <a href="index.html" class="nav-link active">
+            <i class="fas fa-home"></i> Home
+          </a>
+          <a href="preview.html" class="nav-link">
+            <i class="fas fa-eye"></i> Preview
+          </a>
+          <a href="#" class="nav-link">
+            <i class="fas fa-palette"></i> Templates
+          </a>
+          <a href="#" class="nav-link">
+            <i class="fas fa-graduation-cap"></i> Learn
+          </a>
+        </nav>
+        
+        <main class="main-content">
+          <section class="hero">
+            <div class="hero-content">
+              <h1 class="hero-title">SlideBuilder</h1>
+              <div class="typing-animation-container">
+                <p class="typing-text" id="typing-text"></p>
+              </div>
+              <p class="hero-description">
+                When lack of inspiration or time constraints are something you're worried about, 
+                it's a good idea to seek help. create stunning Presentation with less effort using gemni for free!
+              </p>
+              <a href="#form-section" class="btn btn-primary">
+                Get started <i class="fas fa-arrow-right"></i>
+              </a>
+              <button class="btn btn-outline how-it-works">
+                <i class="fas fa-question-circle"></i> How does it work?
+              </button>
+            </div>
+          </section>
+          
+          <section id="form-section" class="form-section">
+            <div class="container">
+              <h2 class="section-title">Create Your Presentation</h2>
+              <div class="form-container">
+                <form id="presentation-form" class="presentation-form">
+                  <div class="form-group">
+                    <label for="topic">Presentation Topic</label>
+                    <input type="text" id="topic" name="topic" placeholder="e.g., Introduction to Artificial Intelligence" required>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="audience">Target Audience</label>
+                    <input type="text" id="audience" name="audience" placeholder="e.g., College students, Business professionals" required>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="slides">Number of Slides</label>
+                    <div class="range-container">
+                      <input type="range" id="slides" name="slides" min="5" max="20" value="10">
+                      <span id="slide-count">10</span>
+                    </div>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="style">Presentation Style</label>
+                    <select id="style" name="style">
+                      <option value="professional">Professional</option>
+                      <option value="creative">Creative</option>
+                      <option value="minimal">Minimal</option>
+                      <option value="educational">Educational</option>
+                    </select>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="additionalInfo">Additional Information (Optional)</label>
+                    <textarea id="additionalInfo" name="additionalInfo" placeholder="Any specific details or requirements"></textarea>
+                  </div>
+                  
+                  <div class="form-actions">
+                    <button type="submit" class="btn btn-primary btn-full">Generate Presentation</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+      
+      <footer class="footer">
+        <div class="container">
+          <div class="footer-content">
+            <div class="footer-logo">
+              <i class="fas fa-presentation icon-primary"></i>
+              <h2 class="logo-text">Slide<span class="text-primary">Builder</span></h2>
+            </div>
+            <p class="footer-text">© 2025 SlideBuilder. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+      
+      <!-- Toast Container -->
+      <div id="toast-container" class="toast-container"></div>
+    </div>
+
+    <script src="app.js"></script>
   </body>
 </html>
