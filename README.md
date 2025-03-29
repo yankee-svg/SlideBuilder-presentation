@@ -20,7 +20,8 @@ it should look more like this
 
 
 ## demo video
-
+this is a short demo showcasing on how to use this project 
+(https://youtu.be/GJD2_gilh50)
 
 ## load balanced and deployment on web01 and web02
 
