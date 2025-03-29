@@ -16,7 +16,8 @@ it should look more like this
 [![Screenshot-2025-03-29-174234.png](https://i.postimg.cc/5NnYYRZF/Screenshot-2025-03-29-174234.png)](https://postimg.cc/XpB7tQNV))
    - You can get an API key from [Google AI Studio](https://makersuite.google.com/app/apikey)
      
-5. then run npx server
+5. after adding the config file navigatee to the project directory in terminal and run npx http-server command
+
 
 ## demo video
 
