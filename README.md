@@ -13,7 +13,7 @@ words
     "GEMINI_API_KEY" : "`your_api_key_here`"
 }
 it should look more like this
-![Demo]([![Screenshot-2025-03-29-174234.png](https://i.postimg.cc/5NnYYRZF/Screenshot-2025-03-29-174234.png)](https://postimg.cc/XpB7tQNV))
+[![Screenshot-2025-03-29-174234.png](https://i.postimg.cc/5NnYYRZF/Screenshot-2025-03-29-174234.png)](https://postimg.cc/XpB7tQNV))
    - You can get an API key from [Google AI Studio](https://makersuite.google.com/app/apikey)
      
 5. then run npx server
