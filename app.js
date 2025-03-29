@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       `;
       
-      // Show loading state
+      // Show loading state gimmick
       showToast('Generating your presentation...', 'success');
       
       // Call Gemini API
@@ -141,10 +141,10 @@ document.addEventListener('DOMContentLoaded', () => {
       
       const presentation = JSON.parse(jsonStr);
       
-      // Save presentation to localStorage
+      // Save presentation to locally
       localStorage.setItem('current_presentation', JSON.stringify(presentation));
       
-      // Redirect to preview page
+      // move to preview page
       window.location.href = 'preview.html';
       
     } catch (error) {
