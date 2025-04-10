@@ -28,6 +28,7 @@ this is a short demo showcasing on how to use this project
 
 
 ## Notes
+API credit :[Google Gemni flash] (https://ai.google.dev/gemini-api/docs/api-key)
 ## License
 
 This project is licensed under the MIT License
