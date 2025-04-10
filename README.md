@@ -6,7 +6,7 @@ words
 ##Feature
 1. uses free google api key so there is no loading waiting for api requests
 2. can change the content based on diffrent types of audience
-3. give you an potion too preview generated slides
+3. give you an option to preview generated slides
 4. safely handles your sensitive api key
 ## how to deploy locally
 
